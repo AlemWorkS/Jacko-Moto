@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  expo-dev:
+    build:
+      context: . 
+    container_name: expo_go_dev_env
+    volumes:
+      # Montage du code source : Essentiel
+      - ../.:/app
+      # Cache de Node Modules (optionnel)
+      - /app/node_modules
+    ports:
+      # Ports utilisés par Expo/Metro Bundler
+      - "8081:8081"
+      - "19000:19000"
+      - "19001:19001"
+    stdin_open: true 
+    tty: true

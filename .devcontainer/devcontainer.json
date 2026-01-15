@@ -1,0 +1,40 @@
+{
+    // Nom affiché dans VS Code
+    "name": "Expo Go Development Environment (Docker Compose)",
+
+    // Utiliser un fichier docker-compose.yml existant pour la configuration
+    "dockerComposeFile": [
+        "./docker-compose.yml" 
+    ],
+
+    // Spécifier le service Docker Compose à utiliser (celui que nous avons nommé 'expo-dev')
+    "service": "expo-dev",
+
+    // Le répertoire de travail dans le conteneur
+    "workspaceFolder": "/app",
+
+    // Extensions VS Code recommandées pour React Native/Expo
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "formulahendry.auto-rename-tag",
+                "ritwickdey.liveserver",
+                "msjsdiag.debugger-for-chrome",
+                "humao.rest-client",
+                "expo.vscode-expo-tools" // ESSENTIEL pour Expo
+            ],
+            // Paramètres VS Code spécifiques au conteneur (optionnel)
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    
+    // Ports à transférer de manière automatique (pour le Metro Bundler et Expo)
+    "forwardPorts": [8081, 19000, 19001],
+
+    // Facultatif : Maintient le conteneur en vie en mode interactif
+    "remoteUser": "root" // Utilisateur par défaut si vous n'avez pas décommenté les lignes USER
+}
